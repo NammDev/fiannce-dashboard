@@ -1,9 +1,4 @@
-import { config } from 'dotenv'
-import { drizzle } from 'drizzle-orm/postgres-js'
-import postgres from 'postgres'
+import { drizzle } from 'drizzle-orm/vercel-postgres'
+import { sql } from '@vercel/postgres'
 
-config({ path: '.env.local' })
-
-// for query purposes
-const queryClient = postgres(process.env.DATABASE_URL!)
-export const db = drizzle(queryClient)
+export const db = drizzle(sql)
