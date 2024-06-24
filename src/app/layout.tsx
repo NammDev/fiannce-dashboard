@@ -9,6 +9,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 
 import './globals.css'
 import { Toaster } from '@/components/ui/toaster'
+import { QueryProviders } from '@/components/query-providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,12 +24,12 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
     <ClerkProvider>
       <html lang='en'>
         <body className={inter.className}>
-          {/* <QueryProviders>
-            <SheetProvider /> */}
-          <Toaster richColors theme='light' />
+          <QueryProviders>
+            {/* <SheetProvider /> */}
+            <Toaster richColors theme='light' />
 
-          {children}
-          {/* </QueryProviders> */}
+            {children}
+          </QueryProviders>
         </body>
       </html>
     </ClerkProvider>
