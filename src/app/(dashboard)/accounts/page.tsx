@@ -8,9 +8,8 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { useGetAccounts } from '@/features/accounts/api/use-get-accounts'
 import { columns } from './columns'
 import { useNewAccount } from '@/features/accounts/hooks/use-new-accounts'
-
-// import { useBulkDeleteAccounts } from '@/features/accounts/api/use-bulk-delete-accounts'
 import { DataTable } from '@/components/data-table'
+import { useBulkDeleteAccounts } from '@/features/accounts/api/use-bulk-delete-accounts'
 
 const AccountsPage = () => {
   // open sheet
@@ -21,11 +20,10 @@ const AccountsPage = () => {
   const accounts = accountsQuery.data || []
 
   // delete account Mutation
-  // const deleteAccounts = useBulkDeleteAccounts()
+  const deleteAccounts = useBulkDeleteAccounts()
 
   // Disabled if loading or deleting
-  const isDisabled = accountsQuery.isLoading
-  //  || deleteAccounts.isPending
+  const isDisabled = accountsQuery.isLoading || deleteAccounts.isPending
 
   if (accountsQuery.isLoading) {
     return (
@@ -60,7 +58,7 @@ const AccountsPage = () => {
             data={accounts}
             onDelete={(row) => {
               const ids = row.map((r) => r.original.id)
-              // deleteAccounts.mutate({ ids })
+              deleteAccounts.mutate({ ids })
             }}
             disabled={isDisabled}
           />
