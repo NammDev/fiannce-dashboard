@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 
-import { Select } from '@/components/select'
+import { Select } from '@/components/form/select'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,

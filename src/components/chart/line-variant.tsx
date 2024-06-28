@@ -1,7 +1,6 @@
 import { format } from 'date-fns'
 import { Line, LineChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis } from 'recharts'
-
-import { CustomTooltip } from '@/components/custom-tooltip'
+import { CustomTooltip } from './custom-tooltip'
 
 type LineVariantProps = {
   data: {

@@ -3,9 +3,6 @@ import { Trash } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { AmountInput } from '@/components/amount-input'
-import { DatePicker } from '@/components/date-picker'
-import { Select } from '@/components/select'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -17,6 +14,11 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+
+import { DatePicker } from '@/components/form/date-picker'
+import { Select } from '@/components/form/select'
+import { AmountInput } from '@/components/form/amount-input'
+
 import { insertTransactionSchema } from '@/db/schema'
 import { convertAmountToMilliunits } from '@/lib/utils'
 

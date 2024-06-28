@@ -1,5 +1,5 @@
-import { DataCharts } from '@/components/data-charts'
-import { DataGrid } from '@/components/data-grid'
+import { DataGrid } from '@/components/card/data-grid'
+import { DataCharts } from '@/components/chart/data-charts'
 
 const DashboardPage = () => {
   return (
