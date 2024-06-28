@@ -9,7 +9,7 @@ const SignInPage = () => {
         <div className='space-y-4 pt-16 text-center'>
           <h1 className='text-3xl font-bold text-[#2E2A47]'>Welcome back!</h1>
           <p className='text-base text-[#7E8CA0]'>
-            Log in or create account to get back to your dashboard.
+            <span className='text-bold text-red-500'>DEMO ACCOUNT:</span> demo - 123456
           </p>
         </div>
 

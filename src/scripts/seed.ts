@@ -6,7 +6,8 @@ import { db } from '@/db/drizzle'
 
 config({ path: '.env.local' })
 
-const SEED_USER_ID = 'user_2i8UUbFMXHz2XFTc9zSv3N6qX3P'
+// demo account
+const SEED_USER_ID = 'user_2iV1s7go4x6fJ7EKB0b3qdIdR0M'
 const SEED_CATEGORIES = [
   {
     id: 'category_1',
