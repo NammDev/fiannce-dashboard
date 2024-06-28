@@ -1,17 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
+import { useQuery } from '@tanstack/react-query'
+import { useSearchParams } from 'next/navigation'
 
-import { client } from "@/lib/hono";
-import { convertAmountFromMilliunits } from "@/lib/utils";
+import { client } from '@/lib/hono'
+import { convertAmountFromMilliunits } from '@/lib/utils'
 
 export const useGetSummary = () => {
-  const searchParams = useSearchParams();
-  const from = searchParams.get("from") || "";
-  const to = searchParams.get("to") || "";
-  const accountId = searchParams.get("accountId") || "";
+  const searchParams = useSearchParams()
+  const from = searchParams.get('from') || ''
+  const to = searchParams.get('to') || ''
+  const accountId = searchParams.get('accountId') || ''
 
   const query = useQuery({
-    queryKey: ["summary", { from, to, accountId }],
+    queryKey: ['summary', { from, to, accountId }],
     queryFn: async () => {
       const response = await client.api.summary.$get({
         query: {
@@ -19,11 +19,11 @@ export const useGetSummary = () => {
           to,
           accountId,
         },
-      });
+      })
 
-      if (!response.ok) throw new Error("Failed to fetch summary.");
+      if (!response.ok) throw new Error('Failed to fetch summary.')
 
-      const { data } = await response.json();
+      const { data } = await response.json()
 
       return {
         ...data,
@@ -39,9 +39,9 @@ export const useGetSummary = () => {
           income: convertAmountFromMilliunits(day.income),
           expenses: convertAmountFromMilliunits(day.expenses),
         })),
-      };
+      }
     },
-  });
+  })
 
-  return query;
-};
+  return query
+}

@@ -22,15 +22,13 @@ const app = new Hono().get(
   ),
   async (ctx) => {
     const auth = getAuth(ctx)
+    if (!auth?.userId) return ctx.json({ error: 'Unauthorized.' }, 401)
+
     const { from, to, accountId } = ctx.req.valid('query')
 
-    if (!auth?.userId) {
-      return ctx.json({ error: 'Unauthorized.' }, 401)
-    }
-
+    // from & to query
     const defaultTo = new Date()
     const defaultFrom = subDays(defaultTo, 30)
-
     const startDate = from ? parse(from, 'yyyy-MM-dd', new Date()) : defaultFrom
     const endDate = to ? parse(to, 'yyyy-MM-dd', new Date()) : defaultTo
 
